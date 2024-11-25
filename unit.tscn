@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://egcoot3qlomg"]
+
+[ext_resource type="Script" path="res://Scripts/UnitScene.gd" id="1_7kdgu"]
+[ext_resource type="Texture2D" uid="uid://d37hqt71dmqwd" path="res://Assets/unit_blank.png" id="1_ltmyv"]
+[ext_resource type="Script" path="res://Scripts/PathDebugNode.gd" id="3_rooev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xm2q"]
+size = Vector2(30, 30)
+
+[node name="Unit" type="Node2D" node_paths=PackedStringArray("character", "anchor", "path_debug")]
+script = ExtResource("1_7kdgu")
+character = NodePath("CharacterBody2D")
+anchor = NodePath("CharacterBody2D/Marker2D")
+path_debug = NodePath("PathDebugNode")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_2xm2q")
+disabled = true
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_ltmyv")
+
+[node name="PathDebugNode" type="Node2D" parent="."]
+script = ExtResource("3_rooev")
+enabled = true

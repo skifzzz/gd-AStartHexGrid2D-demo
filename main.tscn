@@ -1,0 +1,107 @@
+[gd_scene load_steps=19 format=4 uid="uid://byuaf0g7ful7c"]
+
+[ext_resource type="Script" path="res://Scripts/MainScene.gd" id="1_6ep72"]
+[ext_resource type="PackedScene" uid="uid://ctyewev2c6jmr" path="res://Configuration.tscn" id="1_sob4k"]
+[ext_resource type="Texture2D" uid="uid://c8jgg010envbg" path="res://Assets/Grass1.png" id="2_mk5ho"]
+[ext_resource type="Texture2D" uid="uid://dkhs06rs85y7b" path="res://Assets/Grass2.png" id="3_v2awo"]
+[ext_resource type="Texture2D" uid="uid://de0jroqiiyqt1" path="res://Assets/Grass3.png" id="4_y7yqc"]
+[ext_resource type="Texture2D" uid="uid://dkagbghg3e321" path="res://Assets/Grass4.png" id="5_0fbsg"]
+[ext_resource type="Texture2D" uid="uid://bf8eb8pie1iro" path="res://Assets/Grass5.png" id="6_4qx3l"]
+[ext_resource type="Script" path="res://Scripts/UnitSpawnNode.gd" id="8_jc760"]
+[ext_resource type="Script" path="res://Scripts/BaseSpawnNode.gd" id="9_j7xws"]
+[ext_resource type="Script" path="res://Scripts/GridDebugNode.gd" id="10_ovchx"]
+[ext_resource type="Texture2D" uid="uid://bad2qs68v5anx" path="res://Assets/tile_open.png" id="11_0hnsr"]
+[ext_resource type="Texture2D" uid="uid://c2bc05jltptnm" path="res://Assets/tile_closed.png" id="12_35s56"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rphu"]
+texture = ExtResource("2_mk5ho")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owgxy"]
+texture = ExtResource("3_v2awo")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6hau"]
+texture = ExtResource("4_y7yqc")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c7lm"]
+texture = ExtResource("5_0fbsg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nty1u"]
+texture = ExtResource("6_4qx3l")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3a166"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_2rphu")
+sources/1 = SubResource("TileSetAtlasSource_owgxy")
+sources/2 = SubResource("TileSetAtlasSource_y6hau")
+sources/3 = SubResource("TileSetAtlasSource_4c7lm")
+sources/4 = SubResource("TileSetAtlasSource_nty1u")
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("configuration_node", "tilemapLayer", "unitSpawn", "base_spawn", "grid_debug")]
+script = ExtResource("1_6ep72")
+configuration_node = NodePath("Configuration")
+tilemapLayer = NodePath("TileMapLayer")
+unitSpawn = NodePath("UnitSpawnNode")
+base_spawn = NodePath("BaseSpawnNode")
+grid_debug = NodePath("GridDebugNode")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD5//z/AQAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAAAAAD5////AQAAAAAAAAD5/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAAKAP7/AAAAAAAAAAALAP3/AAAAAAAAAAAKAP3/AAAAAAAAAAD6//z/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//r/AAAAAAAAAAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPr/AAAAAAAAAAACAPv/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPv/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPv/AAAAAAAAAAAHAPr/AAAAAAAAAAAIAPv/AAAAAAAAAAAJAPv/AAAAAAAAAAAKAPz/AAAAAAAAAAAJAPz/AAAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///3/AgAAAAAAAAAAAP3/AgAAAAAAAAABAPz/AAAAAAAAAAACAPz/AAAAAAAAAAADAPv/AgAAAAAAAAADAPz/AgAAAAAAAAAEAPz/AQAAAAAAAAAFAPv/AgAAAAAAAAAFAPz/AQAAAAAAAAAGAPz/AAAAAAAAAAAHAPv/AAAAAAAAAAAHAPz/AQAAAAAAAAAIAPz/AAAAAAAAAAAIAP3/AAAAAAAAAAAHAP3/AgAAAAAAAAAGAP3/AQAAAAAAAAAFAP3/AgAAAAAAAAAEAP3/AQAAAAAAAAADAP3/AgAAAAAAAAACAP3/AgAAAAAAAAABAP3/AgAAAAAAAAAAAP7/AAAAAAAAAAD///7/AQAAAAAAAAD+////AQAAAAAAAAD9////AgAAAAAAAAD8////AQAAAAAAAAD8//7/AgAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///z/AQAAAAAAAAAAAPz/AAAAAAAAAAABAPv/AAAAAAAAAAD///v/AAAAAAAAAAD+//z/AAAAAAAAAAD9//v/AAAAAAAAAAD8//z/AAAAAAAAAAD7//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD9//z/AAAAAAAAAAD7//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD7////AQAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAAAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAgAAAAAAAAD/////AgAAAAAAAAAAAP//AQAAAAAAAAABAP7/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAADAP7/AgAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAFAP7/AQAAAAAAAAAGAP7/AgAAAAAAAAAGAP//AQAAAAAAAAAHAP7/AQAAAAAAAAAIAP7/AAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAIAP//AAAAAAAAAAAHAP//AQAAAAAAAAAGAAAAAAAAAAAAAAAFAP//AgAAAAAAAAAEAAAAAQAAAAAAAAADAP//AQAAAAAAAAACAAAAAQAAAAAAAAABAP//AQAAAAAAAAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD9/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAAAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAAAAAAAAAAAAAACAAIAAQAAAAAAAAABAAIAAQAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wMAAQAAAAAAAAAAAAMAAAAAAAAAAAACAAQAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAMAAgAAAAAAAAAGAAQAAQAAAAAAAAAHAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAIAAIAAQAAAAAAAAAJAAEAAgAAAAAAAAAJAAAAAQAAAAAAAAAIAAEAAgAAAAAAAAAHAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAIAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAD5//v/AgAAAAAAAAD4//z/AQAAAAAAAAD4//v/AQAAAAAAAAD3//v/AgAAAAAAAAD2//z/AQAAAAAAAAD1//z/AQAAAAAAAAD0//z/AQAAAAAAAADz//v/AQAAAAAAAAD0//v/AQAAAAAAAAD1//v/AQAAAAAAAAD2//v/AQAAAAAAAAD2//3/AQAAAAAAAAD1//3/AQAAAAAAAAD2//7/AQAAAAAAAAD1//7/AQAAAAAAAAD3//3/AgAAAAAAAAD4//3/AgAAAAAAAAD3//z/AgAAAAAAAAD4//7/AQAAAAAAAAD4////AQAAAAAAAAD3//7/AQAAAAAAAAD3////AQAAAAAAAAD2////AQAAAAAAAAD2/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD1////AQAAAAAAAAD1/wAAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wIAAQAAAAAAAAD3/wEAAQAAAAAAAAD4/wEAAQAAAAAAAAD4/wIAAQAAAAAAAAD3/wIAAQAAAAAAAAD1/wIAAQAAAAAAAAD2/wMAAQAAAAAAAAD1/wEAAQAAAAAAAAD1/wMAAQAAAAAAAAD2/wQAAQAAAAAAAAD3/wMAAQAAAAAAAAD4/wQAAQAAAAAAAAD4/wMAAQAAAAAAAAD5/wMAAQAAAAAAAAD5/wIAAQAAAAAAAAD6/wMAAQAAAAAAAAD7/wMAAQAAAAAAAAD8/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD6//v/AQAAAAAAAAAKAPv/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_3a166")
+navigation_enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UnitSpawnNode" type="Node2D" parent="."]
+script = ExtResource("8_jc760")
+
+[node name="BaseSpawnNode" type="Node2D" parent="."]
+script = ExtResource("9_j7xws")
+
+[node name="GridDebugNode" type="Node2D" parent="."]
+script = ExtResource("10_ovchx")
+enabled = true
+open_tile_texture = ExtResource("11_0hnsr")
+closed_tile_texture = ExtResource("12_35s56")
+
+[node name="Configuration" parent="." instance=ExtResource("1_sob4k")]
+position = Vector2(-566, -305)
