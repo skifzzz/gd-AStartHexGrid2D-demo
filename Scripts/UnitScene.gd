@@ -48,6 +48,9 @@ func _physics_process(delta: float) -> void:
 func can_move(p_position:Vector2) -> bool:
 	return !_path.target_reached(p_position) || _path.has_next()
 
+func set_target(p_position:CombinedPosition):
+	_on_target_changed(p_position)
+
 func _on_target_changed(p_position:CombinedPosition):
 	if _path == null || _path.get_current_position() == null:
 		_path = _navigation_grid.get_path_wrapped(_current_position.get_tile(), p_position.get_tile())
