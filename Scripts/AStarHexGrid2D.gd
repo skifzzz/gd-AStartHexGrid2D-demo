@@ -8,7 +8,7 @@ var cells_map: Dictionary # int:Array[float]
 var navigation: AStar2D
 var _map_state_mutex: Mutex = Mutex.new()
 var _tilemap:TileMapLayer
-var _share_tiles:bool = true
+var _share_tiles:bool = false
 var _stop_before_target_tile:bool = false
 var _config_version:int = 0
 var _config_update_semaphore:Semaphore = Semaphore.new()
