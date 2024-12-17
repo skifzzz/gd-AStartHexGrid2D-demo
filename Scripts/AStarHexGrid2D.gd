@@ -1,6 +1,7 @@
 class_name AStarHexGrid2D
 
 const EMPTY_CELL:float = -1.0
+const DEFAULT_ASTAR_SIZE = 64
 
 var width:int = 0
 var offset: Vector2i = Vector2i(0, 0)
@@ -37,7 +38,8 @@ func _build_cell_map(p_cells_list:Array[Vector2i]):
 
 func _config_navigation(p_initial_size:int):
 	navigation = AStar2D.new()
-	navigation.reserve_space(p_initial_size)
+	if DEFAULT_ASTAR_SIZE < p_initial_size:
+		navigation.reserve_space(p_initial_size)
 
 	for y in cells_map:
 		var row = cells_map[y]
@@ -128,6 +130,7 @@ func get_path_without_offset(p_start:Vector2i, p_end:Vector2i) -> Array[Vector2i
 
 	if was_target_blocked:
 		navigation.set_point_disabled(end_index, true)
+		path.remove_at(path.size() - 1)
 	if was_start_blocked:
 		navigation.set_point_disabled(start_index, true)
 	_map_state_mutex.unlock()
