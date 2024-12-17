@@ -1,0 +1,70 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cbo64ve13irdb"]
+
+[ext_resource type="Texture2D" uid="uid://c8jgg010envbg" path="res://Assets/Grass1.png" id="1_i1dit"]
+[ext_resource type="Texture2D" uid="uid://dkhs06rs85y7b" path="res://Assets/Grass2.png" id="2_5iapk"]
+[ext_resource type="Texture2D" uid="uid://de0jroqiiyqt1" path="res://Assets/Grass3.png" id="3_4kihh"]
+[ext_resource type="Texture2D" uid="uid://dkagbghg3e321" path="res://Assets/Grass4.png" id="4_wetkc"]
+[ext_resource type="Texture2D" uid="uid://bf8eb8pie1iro" path="res://Assets/Grass5.png" id="5_vglpy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rphu"]
+texture = ExtResource("1_i1dit")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owgxy"]
+texture = ExtResource("2_5iapk")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6hau"]
+texture = ExtResource("3_4kihh")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c7lm"]
+texture = ExtResource("4_wetkc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nty1u"]
+texture = ExtResource("5_vglpy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_2rphu")
+sources/1 = SubResource("TileSetAtlasSource_owgxy")
+sources/2 = SubResource("TileSetAtlasSource_y6hau")
+sources/3 = SubResource("TileSetAtlasSource_4c7lm")
+sources/4 = SubResource("TileSetAtlasSource_nty1u")
